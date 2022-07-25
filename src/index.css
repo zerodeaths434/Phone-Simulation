@@ -1,0 +1,711 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(192, 192, 192);
+}
+
+.overlay:after {
+  padding-top: 56.25%;
+  /* 16:9 ratio */
+  display: block;
+  content: "";
+}
+
+.side-btns-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2%;
+  height: 20%;
+  left: 60%;
+  top: 25%;
+}
+
+.volume-btn-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  height: 60%;
+  width: 100%;
+}
+
+.volume-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 20%;
+  font-size: 1vw;
+  background: rgb(61, 61, 61);
+  border: none;
+  color: white;
+}
+
+.volume-down {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 20%;
+  font-size: 1vw;
+  background: rgb(61, 61, 61);
+  color: white;
+  border: none;
+}
+
+.power-on {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 15%;
+  font-size: 0.8vw;
+  background: rgb(61, 61, 61);
+  color: white;
+  border: none;
+}
+
+.phone-body {
+  position: absolute;
+  background: rgb(51, 51, 51);
+  width: 18vw;
+  height: 80vh;
+  padding: 10px 17px 17px 10px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.phone-border {
+  position: relative;
+  background: url("background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 4px solid rgb(0, 0, 0);
+  border-radius: 30px;
+  width: 18vw;
+  height: 80vh;
+}
+
+.offPhone {
+  background: black;
+}
+
+.volume-bar {
+  position: absolute;
+  right: 10px;
+  top: 25%;
+  width: 10%;
+  height: 30%;
+  background: rgb(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.volume-level {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: green;
+}
+
+.top-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 20px;
+  border-radius: 30px 30px 0px 0px;
+  background: rgba(0, 0, 0, 0.233);
+  z-index: 100;
+}
+
+.top-bar-container {
+  position: absolute;
+  color: white;
+  font-family: sans-serif;
+  font-size: small;
+  padding: 3px 15px;
+}
+
+#battery {
+  position: absolute;
+  bottom: -3px;
+  right: 10px;
+  height: 25px;
+  width: auto;
+}
+
+#wifi {
+  position: absolute;
+  top: 1px;
+  right: 50px;
+  height: 18px;
+  width: auto;
+}
+
+#lte {
+  position: absolute;
+  top: 1px;
+  right: 85px;
+  height: 15px;
+  width: auto;
+}
+
+.navigation-buttons {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  border-radius: 0px 0px 25px 25px;
+  background: rgba(0, 0, 0);
+  z-index: 100;
+}
+
+.recent {
+  left: 28%;
+  top: 8px;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  border: 1px solid white;
+}
+
+.home {
+  position: absolute;
+  top: 8px;
+  right: 47%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.back-btn-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 15%;
+  right: 20%;
+}
+
+.back {
+  position: absolute;
+  top: 7px;
+  height: 17px;
+  border-right: 1px solid white;
+  margin: auto;
+}
+
+.back::before {
+  content: "";
+  width: 17px;
+  border-bottom: 1px solid white;
+  margin-top: 4px;
+  position: absolute;
+  right: -2px;
+  display: block;
+  transform: rotate(-30deg);
+}
+
+.back::after {
+  content: "";
+  width: 17px;
+  border-top: 1px solid white;
+  display: block;
+  right: -2px;
+  transform: rotate(30deg);
+  margin-top: 12px;
+  position: absolute;
+}
+
+.transparent-background {
+  background: rgba(0, 0, 0, 0.356);
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+}
+
+.app-drawer {
+  --x: 0;
+  --y: 100;
+  --z: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px 22px 30px 30px;
+  background: rgb(169, 169, 169);
+  position: absolute;
+  bottom: 0;
+  transform: translate3d(var(--x), var(--y), var(--z));
+  transition: 0.2s cubic-bezier(0.33, 1, 0.53, 1);
+}
+
+.hidden {
+  visibility: hidden;
+  height: 0%;
+  --y: 0%;
+}
+
+.bottom-apps {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  width: 100%;
+  bottom: 35px;
+}
+
+.bottom-apps img {
+  width: 40px;
+  height: 40px;
+}
+
+.bottom-apps img:hover {
+  transform: scale(1.2);
+}
+
+.try {
+  text-align: center;
+  font-size: 2vw;
+}
+
+.dialer-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.267);
+  bottom: 30px;
+}
+
+.keypad {
+  position: absolute;
+  bottom: 8vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #2196f3;
+  z-index: 10;
+}
+
+.keypad-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 38%;
+  bottom: 90px;
+  overflow: hidden;
+}
+
+.wrapper {
+  position: absolute;
+  top: 6.4vh;
+  width: 100%;
+}
+
+.wrapper button {
+  display: inline-block;
+  border: 1px solid #333;
+  text-align: center;
+  width: 6vw;
+  height: 6vh;
+  font-size: 2vw;
+  border: none;
+  color: inherit;
+  background: rgb(169, 169, 169);
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 1);
+}
+
+.call-btn-container {
+  position: absolute;
+  bottom: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5vh;
+  background: rgb(169, 169, 169);
+}
+
+.cbc-style {
+  background: rgb(71, 71, 71);
+}
+
+.call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: green;
+  width: 2.5vw;
+  height: 2.5vw;
+  border-radius: 50%;
+}
+
+.cutCall {
+  background: red;
+}
+
+.call i {
+  font-size: 1vw;
+}
+
+.calling-image {
+  position: absolute;
+  top: 7%;
+  height: 12vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calling-image img {
+  height: 5vw;
+  width: 5vw;
+  border-radius: 50%;
+}
+
+.calling {
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  height: 10vh;
+}
+
+#callingDiv {
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 800;
+  color: #fff;
+}
+#numberDiv {
+  width: 100%;
+  text-align: center;
+  font-family: "sans-serif";
+  font-size: 2em;
+  font-weight: 900;
+  color: #fff;
+}
+
+.keypad-container input {
+  position: absolute;
+  top: 0;
+  height: 6.2vh;
+  background: rgb(169, 169, 169);
+  width: 100%;
+  border: 0;
+  outline: none;
+  font-size: 1.5vw;
+  font-weight: 900;
+  text-align: center;
+}
+
+.erase {
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  font-size: 1vw;
+  padding: 2px;
+  text-align: center;
+}
+
+.contact-container {
+  position: absolute;
+  top: 0px;
+  bottom: 30px;
+  overflow: hidden;
+  width: 100%;
+  background: rgb(71, 71, 71);
+  border-radius: 22px 22px 0px 0px;
+  overflow: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-container::-webkit-scrollbar {
+  display: none;
+}
+
+.search-bar {
+  position: absolute;
+  top: 5%;
+  width: 90%;
+  height: 20px;
+  text-align: left;
+  border: 3px solid black;
+  background: inherit;
+  color: white;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.contacts-holder {
+  position: absolute;
+  top: 12%;
+  width: 100%;
+  height: 100%;
+  background: rgb(71, 71, 71);
+}
+
+.flex-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 6vh;
+  background: rgb(71, 71, 71);
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.flex-item img {
+  position: absolute;
+  left: 2%;
+  height: 2.5vw;
+  width: 2.5vw;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.flex-item p {
+  position: absolute;
+  left: 20%;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 1vw;
+  justify-self: center;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  bottom: 30px;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 22px 22px 0px 0px;
+}
+
+.camera-container {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.click-container {
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.click {
+  width: 3vw;
+  height: 3vw;
+  background: rgb(238, 82, 82);
+  border-radius: 50%;
+  border: 4px solid black;
+  z-index: 1000;
+}
+
+.gallery-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 22px 22px 30px 30px;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  overflow: scroll;
+  background: rgb(66, 66, 66);
+}
+.gallery-container::-webkit-scrollbar {
+  display: none;
+}
+.gallery-container,
+.contact-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.row {
+  position: absolute;
+  top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.row img {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  cursor: default;
+}
+
+.row img:hover {
+  transform: scale(1.2);
+}
+
+.app__videoFeed {
+  width: 353%;
+}
+
+.image-container {
+  position: absolute;
+  top: 0px;
+  bottom: 30px;
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  border-radius: 22px 22px 0px 0px;
+}
+
+.closeImage {
+  position: absolute;
+  top: 25px;
+  right: 3%;
+  font-size: 1.5vw;
+  color: rgb(212, 211, 211);
+}
+
+.nextImage {
+  position: absolute;
+  right: 0;
+  width: 20%;
+  height: 70%;
+  top: 20%;
+  cursor: pointer;
+}
+
+.grabbable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prevImage {
+  position: absolute;
+  left: 0;
+  width: 20%;
+  height: 70%;
+  top: 20%;
+  cursor: pointer;
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 900px) {
+  .phone-body {
+    width: 50vw;
+    height: 60vh;
+  }
+  .phone-border {
+    width: 50vw;
+    height: 60vh;
+  }
+
+  .bottom-apps img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .number-row button {
+    width: 33%;
+    height: 5vh;
+    font-size: 12px;
+  }
+
+  .erase {
+    font-size: 3vw;
+  }
+
+  .keypad-container input {
+    font-size: 4vw;
+  }
+
+  .side-btns-container {
+    left: 80%;
+  }
+
+  .flex-item img {
+    width: 7vw;
+    height: 7vw;
+  }
+
+  .flex-item p {
+    font-size: 4vw;
+  }
+
+  .call {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  .grabbable img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .call i {
+    font-size: 3vw;
+  }
+
+  .calling-image img {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  #callingDiv {
+    font-size: 3vw;
+  }
+
+  #numberDiv {
+    font-size: 6vw;
+  }
+
+  .click {
+    height: 8vw;
+    width: 8vw;
+  }
+
+  .search-bar {
+    top: 6%;
+    border: 2px solid black;
+  }
+}
