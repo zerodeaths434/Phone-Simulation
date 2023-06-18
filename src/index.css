@@ -503,6 +503,9 @@ button:hover {
 }
 
 .video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
   bottom: 30px;
