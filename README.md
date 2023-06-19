@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##Image
+## Image
 
 ![project-image](https://github.com/zerodeaths434/Phone-Simulation/blob/main/phone-simulation.jpg?raw=true)
 
